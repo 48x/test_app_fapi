@@ -12,7 +12,7 @@
         console.log(rParams);
         FAPI.init(rParams["api_server"], rParams["apiconnection"],
                   function() {
-                      console.log("FAPI is READY")
+                      console.log("FAPI is READY");
                       console.log(FAPI.Util.getRequestParameters()["logged_user_id"]);
                   },
                   function(error) {
