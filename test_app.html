@@ -7,17 +7,19 @@
     <script content="text/javascript" src="http://vdevlnx193.mail.msk:8090/js/fapi.js" defer="defer"></script>
 
     <script>
-    var rParams = FAPI.Util.getRequestParameters();
-    console.log(rParams);
-    FAPI.init(rParams["api_server"], rParams["apiconnection"],
-              function() {
-                  console.log("FAPI is READY")
-                  console.log(FAPI.Util.getRequestParameters()["logged_user_id"]);
-              },
-              function(error) {
-                  console.log(error);
-              }
-    );
+    if (document.readyState === 'complete') {
+        var rParams = FAPI.Util.getRequestParameters();
+        console.log(rParams);
+        FAPI.init(rParams["api_server"], rParams["apiconnection"],
+                  function() {
+                      console.log("FAPI is READY")
+                      console.log(FAPI.Util.getRequestParameters()["logged_user_id"]);
+                  },
+                  function(error) {
+                      console.log(error);
+                  }
+        );
+    }
 
     </script>
 </head>
