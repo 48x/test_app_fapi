@@ -4,35 +4,25 @@
     <meta charset="UTF-8">
     <title>Widget Mediatopic Post Test Form</title>
 
-    <script content="text/javascript" src="http://vdevlnx193.mail.msk:8090/js/fapi.js"></script>
+    <script content="text/javascript" src="http://vdevlnx193.mail.msk:8090/js/fapi.js" defer="defer"></script>
 
     <script>
-    var permissionStatus = "SET STATUS";
-    var sig;
-    var currentUserId;
-    var feedPostingObject = {};
-    var rParams = FAPI.Util.getRequestParameters();
-    FAPI.init(rParams["api_server"], rParams["apiconnection"],
-              /*
-              * Первый параметр:
-              * функция, которая будет вызвана после успешной инициализации.
-              */
-              function() {
-                  currentUserId = FAPI.Util.getRequestParameters()["logged_user_id"];
-              },
-              /*
-              * Второй параметр:
-              * функция, которая будет вызвана, если инициализация не удалась.
-              */
-              function(error) {
-                  processError(error);
-              }
-    );
+    function init() {
+        var rParams = FAPI.Util.getRequestParameters();
+        FAPI.init(rParams["api_server"], rParams["apiconnection"],
+                  function() {
+                      console.log(FAPI.Util.getRequestParameters()["logged_user_id"]);
+                  },
+                  function(error) {
+                      console.log(error);
+                  }
+        );
+    }
 
     </script>
 </head>
 
-<body>
+<body onload="init()">
     <p>
         <span style="font-size: 70px">
             TEST FAPI
