@@ -7,7 +7,7 @@
     <script content="text/javascript" src="http://vdevlnx193.mail.msk:8090/js/fapi.js" defer="defer"></script>
 
     <script>
-    if (document.readyState === 'complete') {
+    function init() {
         var rParams = FAPI.Util.getRequestParameters();
         console.log(rParams);
         FAPI.init(rParams["api_server"], rParams["apiconnection"],
@@ -19,12 +19,11 @@
                       console.log(error);
                   }
         );
-    }
-
+    };
     </script>
 </head>
 
-<body>
+<body onload="init()">
     <p>
         <span style="font-size: 70px">
             TEST FAPI
